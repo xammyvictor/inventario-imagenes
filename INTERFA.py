@@ -16,3 +16,12 @@ st.write(
     "Utiliza la cámara para capturar una imagen de la estantería. "
     "El sistema detectará los productos, los contará y mostrará su ubicación."
 )
+
+with col2:
+    st.header("📊 Análisis y Búsqueda")
+    
+    # Cuadro de texto para buscar producto
+    buscar_producto = st.text_input("Buscar Producto", key="search_query", placeholder="Ej: Caja, Botella...")
+
+    st.subheader("Descripción")
+
