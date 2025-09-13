@@ -17,6 +17,8 @@ st.write(
     "El sistema detectará los productos, los contará y mostrará su ubicación."
 )
 
+col1, col2 = st.columns([2, 1])
+
 with col2:
     st.header("📊 Análisis y Búsqueda")
     
