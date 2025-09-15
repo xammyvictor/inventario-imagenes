@@ -26,9 +26,16 @@ if "show_camera" not in st.session_state:
 with col1:
     st.header("📷 Captura de la Cámara")
     
-    # La línea de abajo debe estar sangrada
-    if st.button("Mostrar Cámara"):
-        st.session_state.show_camera = True
+    # Contenedor para los botones
+    btn_col1, btn_col2 = st.columns(2)
+    
+    with btn_col1:
+        if st.button("Mostrar Cámara"):
+            st.session_state.show_camera = True
+    
+    with btn_col2:
+        if st.button("Ocultar Cámara"):
+            st.session_state.show_camera = False
 
     # El resto del código dentro de este bloque
     if st.session_state.show_camera:
