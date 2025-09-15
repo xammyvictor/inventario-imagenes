@@ -19,37 +19,33 @@ st.write(
 
 col1, col2 = st.columns([2, 1])
 
+# Inicializar la variable de estado
+if "show_camera" not in st.session_state:
+    st.session_state.show_camera = False
 
 with col1:
-     st.header("📷 Captura de la Cámara")
+    st.header("📷 Captura de la Cámara")
     
-    # Botón que cambia el estado para mostrar u ocultar la cámara
+    # La línea de abajo debe estar sangrada
     if st.button("Mostrar Cámara"):
         st.session_state.show_camera = True
 
-    # Solo muestra el camera_input si show_camera es True
+    # El resto del código dentro de este bloque
     if st.session_state.show_camera:
         img_buffer = st.camera_input("Toma una foto", key="camera")
     else:
-        # Aquí puedes mostrar un mensaje o un marcador de posición
         st.info("Presiona 'Mostrar Cámara' para activarla.")
-        img_buffer = None # Asegúrate de que img_buffer es None si la cámara no está activa
-
-    
-
-
-
+        img_buffer = None
 
 with col2:
     st.header("📊 Análisis y Búsqueda")
     
-    # Cuadro de texto para buscar producto
     buscar_producto = st.text_input("Buscar Producto", key="search_query", placeholder="Ej: Caja, Botella...")
 
     st.subheader("Descripción")
 
-  if img_buffer is not None:
+    # Esta línea también debe estar sangrada
+    if img_buffer is not None:
         st.success("¡Foto capturada! Puedes continuar con el análisis.")
         # Aquí iría tu lógica de procesamiento de imagen
         # ...
-
