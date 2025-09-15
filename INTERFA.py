@@ -21,8 +21,19 @@ col1, col2 = st.columns([2, 1])
 
 
 with col1:
-    st.header("📷 Captura de la Cámara")
-    img_buffer = st.camera_input("Toma una foto", key="camera")
+     st.header("📷 Captura de la Cámara")
+    
+    # Botón que cambia el estado para mostrar u ocultar la cámara
+    if st.button("Mostrar Cámara"):
+        st.session_state.show_camera = True
+
+    # Solo muestra el camera_input si show_camera es True
+    if st.session_state.show_camera:
+        img_buffer = st.camera_input("Toma una foto", key="camera")
+    else:
+        # Aquí puedes mostrar un mensaje o un marcador de posición
+        st.info("Presiona 'Mostrar Cámara' para activarla.")
+        img_buffer = None # Asegúrate de que img_buffer es None si la cámara no está activa
 
     
 
