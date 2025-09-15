@@ -48,3 +48,8 @@ with col2:
 
     st.subheader("Descripción")
 
+  if img_buffer is not None:
+        st.success("¡Foto capturada! Puedes continuar con el análisis.")
+        # Aquí iría tu lógica de procesamiento de imagen
+        # ...
+
