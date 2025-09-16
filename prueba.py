@@ -24,13 +24,15 @@ def detectar_objetos_por_color(image):
 
     # Rango de color para el rojo (ajustar si es necesario)
     min_rojo = np.array([0, 100, 100], dtype="uint8")
-    max_rojo = np.array([180, 255, 255], dtype="uint8")
-    
+    max_rojo = np.array([10, 255, 255], dtype="uint8")
+    min_rojo2 = np.array([170, 100, 100], dtype="uint8")
+    max_rojo2 = np.array([180, 255, 255], dtype="uint8")   
     # Crear la máscara de color
     mask = cv2.inRange(hsv, min_rojo, max_rojo)
-    
+    mask2 = cv2.inRange(hsv, min_rojo2, max_rojo2)
+    mascara_final = cv2.bitwise_or(mask, mask2)
     # Encontrar contornos en la máscara
-    contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    contours, _ = cv2.findContours(mascara_final, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     
     object_count = 0
     
