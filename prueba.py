@@ -24,7 +24,7 @@ def detectar_objetos_por_color(image):
 
     # Rango de color para el rojo (ajustar si es necesario)
     min_rojo = np.array([0, 100, 100], dtype="uint8")
-    max_rojo = np.array([10, 255, 255], dtype="uint8")
+    max_rojo = np.array([180, 255, 255], dtype="uint8")
     
     # Crear la máscara de color
     mask = cv2.inRange(hsv, min_rojo, max_rojo)
